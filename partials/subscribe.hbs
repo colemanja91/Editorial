@@ -1,5 +1,8 @@
 <section class="subscribe-form">
   <h3 class="subscribe-form-title">Get weekly insights in your inbox</h3>
   <p>100% free; unsubscribe anytime.</p>
-  {{subscribe_form placeholder="youremail@example.com"}}
+  <form data-members-form="subscribe">
+    <input data-members-email type="email" required="true" placeholder="youremail@example.com" />
+    <button type="submit">Subscribe</button>
+  </form>
 </section>
