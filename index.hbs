@@ -6,25 +6,25 @@ into the {body} of the default.hbs template --}}
 {{!-- Featured Post --}}
 {{#is "home"}}
 {{#get "posts" filter="featured:true" limit="1" as |featured_post|}}
-    {{#foreach featured_post}}
-        <article id="banner">
-            <div class="content">
-                <header>
-                    <h1><a href="{{url}}">{{title}}</a></h1>
-                    {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{/if}}
-                </header>
-                {{content words="42"}}
-                <ul class="actions">
-                    <li><a href="{{url}}" class="button big">Learn More</a></li>
-                </ul>
-            </div>
-            {{#if feature_image}}
-            <a href="{{url}}" class="image object">
-                <img src="{{img_url feature_image}}" alt="{{title}}" />
-            </a>
-            {{/if}}
-        </article>
-    {{/foreach}}
+{{#foreach featured_post}}
+<article id="banner">
+    <div class="content">
+        <header>
+            <h1><a href="{{url}}">{{title}}</a></h1>
+            {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{/if}}
+        </header>
+        {{content words="42"}}
+        <ul class="actions">
+            <li><a href="{{url}}" class="button big">Learn More</a></li>
+        </ul>
+    </div>
+    {{#if feature_image}}
+    <a href="{{url}}" class="image object">
+        <img src="{{img_url feature_image}}" alt="{{title}}" />
+    </a>
+    {{/if}}
+</article>
+{{/foreach}}
 {{/get}}
 {{/is}}
 
@@ -55,3 +55,6 @@ into the {body} of the default.hbs template --}}
 {{!-- Pagination --}}
 {{pagination}}
 
+<script type="text/javascript">
+    amplitude.getInstance().logEvent('Viewed Homepage');
+</script>
