@@ -33,32 +33,28 @@ into the {body} of the default.hbs template --}}
 
     <footer class="post-footer">
 
-        {{subscribe}}
+        {{> subscribe}}
 
         <div class="authors">
             {{#foreach authors}}
-            <a class="author-box" href="{{url}}">
+            <a class="author-box">
                 {{#if profile_image}}
-                <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+                <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" href="{{url}}" />
                 {{/if}}
                 <section class="author-box-content">
-                    <div class="author-box-label">Author</div>
+                    <a class="author-box-label" href="{{url}}">Author</a>
                     <h5 class="author-box-name">{{name}}</h5>
                     {{#if bio}}
                     <p>{{bio}}</p>
                     {{else}}
                     <p>Read more posts by this author.</p>
                     {{/if}}
-
-
-
+                    {{#if website}}
+                    <p><a href="{{website}}">{{website}}</a></p>
+                    {{/if}}
                 </section>
             </a>
-            {{#if website}}
-            <a class="author-website" href="{{website}}">
-                <p>{{website}}</p>
-            </a>
-            {{/if}}
+
             {{/foreach}}
         </div>
 
