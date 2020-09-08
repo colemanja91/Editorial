@@ -49,11 +49,16 @@ into the {body} of the default.hbs template --}}
                     {{else}}
                     <p>Read more posts by this author.</p>
                     {{/if}}
-                    {{#if website}}
-                    <p>{{website}}</p>
-                    {{/if}}
+
+
+
                 </section>
             </a>
+            {{#if website}}
+            <a class="author-website" href="{{website}}">
+                <p>{{website}}</p>
+            </a>
+            {{/if}}
             {{/foreach}}
         </div>
 
